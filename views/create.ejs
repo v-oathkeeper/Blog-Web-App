@@ -1,0 +1,37 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <% if(locals.postId) { %>
+
+                <h1>Edit Post</h1>
+
+                <form action="/update" method="POST">
+                    <input type="text" class="form-control my-3" name="title" placeholder="Title"
+                        value="<%= title %>" />
+                    <textarea placeholder="Content" class="form-control" id="content" name="content" cols="30"
+                        style="resize: none" rows="18"><%= content %></textarea>
+                    <input hidden name="index" value="<%= postId %>" />
+                    <div class="text-end m-2">
+                        <input class="btn btn-outline-dark" type="submit" value="Edit Post" />
+                    </div>
+                </form>
+
+                <% } else { %>
+
+                    <h1>Create Post</h1>
+
+                    <form action="/save" method="POST">
+                        <input type="text" class="title-field form-control my-3" name="title" placeholder="Title" />
+                        <textarea placeholder="Content" class="content-field form-control" id="content" name="content"
+                            cols="30" style="resize: none" rows="18"></textarea>
+                        <div class="text-end m-2">
+                            <input class="btn btn-outline-dark" type="submit" value="Create Post" />
+                        </div>
+                    </form>
+
+                    <% } %>
+        </div>
+    </div>
+
+    <%- include("partials/footer.ejs") %>

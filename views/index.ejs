@@ -1,0 +1,65 @@
+<%- include("partials/header.ejs") %>
+
+  <div class="min-vh-100">
+    <div class="container">
+      <div class="row flex-row justify-content-evnely">
+        <div class="content col-12 col-xl-9 p-4">
+          <% if (posts.length===0) { %>
+            <div class="text-center">
+              <h3>So empty here... 😟</h3>
+            </div>
+            <% } else { %>
+              <ul class="p-0">
+                <% for (let index=posts.length-1; index>= 0; index--) { %>
+                  <li class="p-1">
+                    <div class="mb-2 rounded text-body-emphasis">
+                      <div class="px-0 p-4 p-md-5 mb-4 rounded text-body-emphasis gree">
+                        <p>
+                          <%= posts[index].date %>
+                        </p>
+                        <a href="/view/<%= index %>">
+                          <h1 class="display-4 fs-2 pt-serif">
+                            <%= posts[index].title %>
+                          </h1>
+                        </a>
+                        <p class="lead my-3">
+                          <%= posts[index].content %>
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <% } %>
+              </ul>
+              <% } %>
+        </div>
+        <div id="aside" class="content rounded mt-4 col-3 d-none d-lg-none d-md-none d-sm-none d-xl-block">
+          <div class="text-center my-4">
+            <a href="/create"><button class="btn btn-success fs-5 btn-lg button-rad" style="width: 90%;">Create
+                Post</button></a>
+          </div>
+          <% if (posts.length===0) { %>
+            <div class="text-center">
+              <p>No posts yet...</p>
+            </div>
+            <% } else { %>
+              <div class="px-3">
+                <p>RECENT POSTS</p>
+                <ul class="p-0">
+                  <% for (let index=posts.length-1; index>= 0; index--) { %>
+                    <li>
+                      <h3 class="fs-6 pt-serif"><a style="text-decoration: none;" href="/view/<%= index %>">
+                          <%= posts[index].title %>
+                        </a></h3>
+                      <hr>
+                    </li>
+                    <% } %>
+                </ul>
+              </div>
+              <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <%- include("partials/footer.ejs") %>

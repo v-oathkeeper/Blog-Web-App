@@ -1,0 +1,45 @@
+li {
+    list-style: none;
+}
+
+#header {
+    background-color: #D8EFD3;
+}
+
+#home {
+    background-color: #95D2B3;
+}
+
+.nav-link {
+  
+    --bs-nav-link-color:  #2C3E50;
+
+}
+
+.title-name {
+        font-family: "Bree Serif", serif;
+        font-weight: 400;
+        font-style: normal;
+}
+
+.gree {
+    background-color: #F1F8E8;
+}
+
+.text-body-emphasis {
+    color: darkgreen !important;
+}
+
+#aside {
+    background-color: #F1F8E8;
+    margin-bottom: 70px;
+}
+
+#footer {
+    background-color: #55AD9B;
+}
+
+
+
+
+
